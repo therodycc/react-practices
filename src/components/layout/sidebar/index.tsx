@@ -52,7 +52,7 @@ const Sidebar = () => {
                             <Link key={option.name + index} href={option.route}>
                                 <p
                                     onClick={() => handleChange(option.route)}
-                                    className={`nav-link my-1 shadow-lg d-flex justify-content-between align-items-center p-3  ${option.active ? "active" : "bg-white"
+                                    className={`nav-link my-1 shadow-lg d-flex justify-content-between align-items-center p-3  ${option.active ? "active active-border" : "bg-white"
                                         }`}
                                     style={{ borderLeft: "3px solid #396afc " }}
                                 >
@@ -78,7 +78,7 @@ const Sidebar = () => {
                                     <>
                                         <Link key={subOption.name + index} href={subOption.route}>
                                             <li
-                                                className={`nav-link my-1 ${subOption.active ? "active" : "bg-white"
+                                                className={`nav-link my-1 p-2 ${subOption.active ? "active active-border" : "bg-white"
                                                     }`}
                                                 onClick={() => { handleSubOptionActive(index) }}
                                             >

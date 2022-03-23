@@ -1,13 +1,13 @@
 import React from 'react'
 import { ButtonPropsI } from '../../../interfaces/button/button.interface'
 
-const Button = ({ title, action, bgClass, size, type, loading }: ButtonPropsI) => {
+const Button = ({ title, action, bgClass, size, type, loading, customClass }: ButtonPropsI) => {
     return (
         <>
             <button
                 onClick={() => action()}
                 type={type || 'button'}
-                className={`btn btn-${bgClass} btn-${size && (size || '')} mx-1`}
+                className={`btn btn-${bgClass} btn-${size && (size || '')} mx-1 ${customClass}`}
             >
                 {!loading ? title : (
                     <>

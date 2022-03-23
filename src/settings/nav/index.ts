@@ -1,7 +1,7 @@
 export const navOptions = [
-    {
-        name:"Home",
-        route:"/",
-        active:true
-    }
+    // {
+    //     name:"Home",
+    //     route:"/",
+    //     active:true
+    // }
 ]

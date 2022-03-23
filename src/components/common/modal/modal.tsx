@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { ModalI } from "../../../interfaces/modal/modal.interface";
+import Button from "../button";
 
 const Modal = ({ active, children, toggle, header, width = "mw-1000px" }: ModalI) => {
 
@@ -30,7 +31,7 @@ const Modal = ({ active, children, toggle, header, width = "mw-1000px" }: ModalI
 
                 <div
                     className={`modal-dialog modal-dialog-centered ${width}  animate__animated  ${active && 'animate__fadeInDown'} ${animation && ' animate__fadeOutUp'}`}
-                    style={{ animationDuration: '1s'}}
+                    style={{ animationDuration: '1s' }}
                 >
                     <div className="modal-content rounded p-1">
                         <div className="modal-header pb-2">
@@ -41,19 +42,18 @@ const Modal = ({ active, children, toggle, header, width = "mw-1000px" }: ModalI
                             <div
                                 className="mb-2"
                             >
-                                <button onClick={() => {
-                                    setAnimation(true)
-                                    setTimeout(() => {
-                                        toggle()
-                                    }, 700);
-                                }} className="close m-0"
-
-                                >
-
-                                    <span aria-hidden="true" style={{ position: "absolute", top: "8px", right: "15px" }}>
-                                        x
-                                    </span>
-                                </button>
+                                <Button  
+                                    action={() => {
+                                        setAnimation(true)
+                                        setTimeout(() => {
+                                            toggle()
+                                        }, 700);
+                                    }}
+                                    title=" x "
+                                    bgClass="danger"
+                                    size="sm"
+                                    customClass="px-3 py-1"
+                                />
                             </div>
                         </div>
                         <div

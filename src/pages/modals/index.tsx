@@ -14,9 +14,9 @@ const ModalPage = () => {
 
                 {showModalBasic &&
                     <Modal active={true} toggle={setShowModalBasic} >
-                        <div>
-                            <h3>Modal</h3>
-                            <span>New modal</span>
+                        <div className="p-5 bg-light ">
+                            <h3 className="text-primary">Modal</h3>
+                            <span className="fw-bolder text-dark">New modal</span>
                         </div>
                     </Modal>
                 }
