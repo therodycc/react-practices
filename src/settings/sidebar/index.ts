@@ -38,4 +38,11 @@ export const sidebarOptions = [
         subOptsActive: false,
         subOptions: []
     },
+    {
+        name: "Modals",
+        route: "/modals",
+        active: false,
+        subOptsActive: false,
+        subOptions: []
+    },
 ]

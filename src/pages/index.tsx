@@ -1,5 +1,4 @@
 import type { NextPage } from 'next'
-import styles from '../../styles/Home.module.css'
 import Layout from '../components/layout'
 
 const Home: NextPage = () => {
@@ -7,6 +6,7 @@ const Home: NextPage = () => {
     <>
       <Layout>
           <h2>Dashboard page</h2>
+        
       </Layout>
     </>
   )

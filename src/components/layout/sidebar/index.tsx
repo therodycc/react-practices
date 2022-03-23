@@ -62,7 +62,7 @@ const Sidebar = () => {
                                             {/* <FontAwesomeIcon icon={facheve} /> */}
                                             <i
                                                 className={`fas fa-chevron-${option.subOptsActive ? "up" : "down"
-                                                    } `}
+                                                    } active-i`}
                                                 onClick={() => {
                                                     handleToggleMenu(index);
                                                 }}

@@ -1,0 +1,10 @@
+.active-i:hover{
+    transition:.3s ease all;
+    /* padding:5px; */
+    text-align: center;
+    /* background-color:white; */
+    color: rgb(184, 184, 255);
+    transform:scale(1.12);
+    border-radius:50%;
+    cursor:pointer;
+}
