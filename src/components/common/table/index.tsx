@@ -8,19 +8,36 @@ const Table = ({ headers, items }: TablePropsI) => {
             <table className="table ">
                 <thead className="bg-primary text-white">
                     <tr>
-                        <th scope="col">Type</th>
-                        <th scope="col">Column heading</th>
-                        <th scope="col">Column heading</th>
-                        <th scope="col">Column heading</th>
+                        {
+                            headers.map(head => (
+                                <>
+                                    <th scope="col">
+                                        {head.title}
+                                    </th>
+                                </>
+                            ))
+                        }
                     </tr>
                 </thead>
                 <tbody>
-                    <tr >
-                        <td>Column content</td>
-                        <td>Column content</td>
-                        <td>Column content</td>
-                        <td>Column content</td>
-                    </tr>
+                    {
+                        items.map((item, index) => (
+                            <>
+                                <tr key={'table_column_' + index}>
+                                    {
+                                        headers.map((head, _index) => (
+                                            <>
+                                                <td key={'table_column_' + _index}>
+                                                    {(head.key && item[head.key])}
+                                                    {typeof head.render === 'function' && !head.key && <head.render item={item} />}
+                                                </td>
+                                            </>
+                                        ))
+                                    }
+                                </tr>
+                            </>
+                        ))
+                    }
                 </tbody>
             </table>
         </>

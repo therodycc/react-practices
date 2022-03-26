@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Button from '../../components/common/button';
 import Table from '../../components/common/table'
 import Layout from '../../components/layout'
 import { TableHeadersI } from '../../interfaces/table/table.interface';
@@ -11,6 +12,31 @@ const Notes = () => {
         {
             title: 'Title',
             key: "title"
+        },
+        {
+            title: 'Description',
+            key: "description"
+        },
+        {
+            title: 'Actions',
+            key: "",
+            render: ({ item }: any) => {
+                return (
+                    <>
+                        <Button title={'Delete'} action={() => {
+                            console.log({ item });
+                        }} bgClass={'danger'} />
+                    </>
+                )
+            }
+        }
+    ]
+
+
+    const data = [
+        {
+            title: "Hello world",
+            description: "The new description data"
         }
     ]
     return (
@@ -19,7 +45,7 @@ const Notes = () => {
                 <div className="m-5">
                     <Table
                         headers={notesHeader}
-                        items={[]} />
+                        items={data} />
                 </div>
             </Layout>
         </>
