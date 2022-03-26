@@ -7,7 +7,16 @@ import { TableHeadersI } from '../../interfaces/table/table.interface';
 const Notes = () => {
 
 
-    const [notes, setNotes] = useState([]);
+    const [notes, setNotes] = useState([
+        {
+            title: "Hello world",
+            description: "The new description data"
+        },
+        {
+            title: "Hello world 2",
+            description: "The new description data 2"
+        },
+    ]);
     const notesHeader: TableHeadersI[] = [
         {
             title: 'Title',
@@ -32,20 +41,13 @@ const Notes = () => {
         }
     ]
 
-
-    const data = [
-        {
-            title: "Hello world",
-            description: "The new description data"
-        }
-    ]
     return (
         <>
             <Layout>
                 <div className="m-5">
                     <Table
                         headers={notesHeader}
-                        items={data} />
+                        items={notes} />
                 </div>
             </Layout>
         </>
