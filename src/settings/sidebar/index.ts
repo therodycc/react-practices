@@ -7,11 +7,17 @@ export const sidebarOptions = [
         subOptions: []
     },
     {
-        name: "Notes",
-        route: "/notes",
+        name: "With Sockets",
+        route: "/sockets",
         active: false,
         subOptsActive: false,
-        subOptions: []
+        subOptions: [
+            {
+                name: "Notes",
+                route: '/sockets/notes',
+                active: false
+            },
+        ]
     },
     {
         name: "Multi select",

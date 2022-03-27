@@ -1,22 +1,31 @@
-import React, { useState } from 'react'
-import Button from '../../components/common/button';
-import Table from '../../components/common/table'
-import Layout from '../../components/layout'
-import { TableHeadersI } from '../../interfaces/table/table.interface';
+import { useEffect, useState } from 'react';
+import { io } from 'socket.io-client';
+import Button from '../../../components/common/button';
+import Table from '../../../components/common/table';
+import Layout from '../../../components/layout';
+import { TableHeadersI } from '../../../interfaces/table/table.interface';
+
+
+
+const END_POINT = 'http://localhost:5000'
+
+
 
 const Notes = () => {
+    const [notes, setNotes] = useState<any>();
 
 
-    const [notes, setNotes] = useState([
-        {
-            title: "Hello world",
-            description: "The new description data"
-        },
-        {
-            title: "Hello world 2",
-            description: "The new description data 2"
-        },
-    ]);
+    useEffect(() => {
+        const server = io(END_POINT)
+        console.log(server);
+    }, []);
+
+    const getAllNotes = () => {
+
+    }
+
+
+
     const notesHeader: TableHeadersI[] = [
         {
             title: 'Title',
@@ -45,9 +54,13 @@ const Notes = () => {
         <>
             <Layout>
                 <div className="m-5">
+                    <code contentEditable={false}>
+                        Here the data
+                        {JSON.stringify(notes)}
+                    </code>
                     <Table
                         headers={notesHeader}
-                        items={notes} />
+                        items={notes?.data} />
                 </div>
             </Layout>
         </>

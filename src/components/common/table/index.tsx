@@ -7,12 +7,12 @@ const Table = ({ headers, items }: TablePropsI) => {
         <>
             <table className="table ">
                 <thead className="bg-primary text-white">
-                    <tr>
+                    <tr key="head_table_row">
                         {
-                            headers.map(head => (
+                            headers?.map((head, index) => (
                                 <>
-                                    <th scope="col">
-                                        {head.title}
+                                    <th key={'head_colum' + index} scope="col">
+                                        {head?.title}
                                     </th>
                                 </>
                             ))
@@ -21,15 +21,15 @@ const Table = ({ headers, items }: TablePropsI) => {
                 </thead>
                 <tbody>
                     {
-                        items.map((item, index) => (
+                        items?.map((item, index) => (
                             <>
                                 <tr key={'table_column_' + index}>
                                     {
                                         headers.map((head, _index) => (
                                             <>
                                                 <td key={'table_column_' + _index}>
-                                                    {(head.key && item[head.key])}
-                                                    {typeof head.render === 'function' && !head.key && <head.render item={item} />}
+                                                    {(head?.key && item[head?.key])}
+                                                    {typeof head?.render === 'function' && !head?.key && <head.render item={item} />}
                                                 </td>
                                             </>
                                         ))

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { SidebarOptionPropsI } from "../../../interfaces/asidebar/asidebar.interface";
 import { sidebarOptions } from "../../../settings/sidebar";
 import Router from "next/router";
+import { v4 as uuidV4 } from 'uuid'
 
 const Sidebar = () => {
     const [asideBarOptions, setAsideBarOptions] = useState<SidebarOptionPropsI[]>(
@@ -17,6 +18,7 @@ const Sidebar = () => {
         setAsideBarOptions(
             sidebarOptions?.map((item, i) => {
                 item.route === path ? (item.active = true) : (item.active = false);
+                // (item.route !== path) && (item.subOptsActive = false);
                 return item;
             })
         );
@@ -31,27 +33,36 @@ const Sidebar = () => {
         setAsideBarOptions(newData);
     };
 
-    const handleSubOptionActive = (_index: number) => {
+    const handleSubOptionActive = (path: string) => {
         sidebarOptions.map((item) => {
             return {
                 ...item,
                 subOptions: item?.subOptions.map((sub, index) => {
-                    _index === index ? (sub.active = true) : (sub.active = false);
+                    sub.route === path ? (sub.active = true) : (sub.active = false);
                     return sub;
                 }),
             };
         });
     };
 
+    const handleMenu = (path: string) => {
+        handleChange(path)
+        handleSubOptionActive(path)
+    }
+
     return (
         <>
-            <ul className="nav nav-pills flex-column mx-2 my-2">
+            <ul className="nav nav-pills flex-column mx-2 my-2" style={{overflow:'auto'}}  >
                 {asideBarOptions.map((option, index) => (
                     <>
-                        <li className="nav-item">
-                            <Link key={option.name + index} href={option.route}>
+                        <li
+                            key={uuidV4()}
+                            className="nav-item">
+                            <Link
+                                href={option.route}>
                                 <p
-                                    onClick={() => handleChange(option.route)}
+                                    key={uuidV4()}
+                                    onClick={() => handleMenu(option.route)}
                                     className={`nav-link my-1 shadow-lg d-flex justify-content-between align-items-center p-3  ${option.active ? "active active-border" : "bg-white"
                                         }`}
                                     style={{ borderLeft: "3px solid #396afc " }}
@@ -73,14 +84,14 @@ const Sidebar = () => {
                             </Link>
                         </li>
                         {option?.subOptsActive && (
-                            <ul className="animate__animated  animate__bounceInLeft">
+                            <ul className={`animate__animated`}>
                                 {option.subOptions.map((subOption, index) => (
                                     <>
-                                        <Link key={subOption.name + index} href={subOption.route}>
+                                        <Link key={uuidV4()} href={subOption.route}>
                                             <li
                                                 className={`nav-link my-1 p-2 ${subOption.active ? "active active-border" : "bg-white"
                                                     }`}
-                                                onClick={() => { handleSubOptionActive(index) }}
+                                                onClick={() => { handleMenu(subOption.route) }}
                                             >
                                                 <i className="fas fa-road mx-2"></i>
                                                 {subOption.name}
