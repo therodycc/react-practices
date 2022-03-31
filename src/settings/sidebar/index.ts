@@ -58,4 +58,11 @@ export const sidebarOptions = [
         subOptsActive: false,
         subOptions: []
     },
+    {
+        name: "Forms",
+        route: "/forms",
+        active: false,
+        subOptsActive: false,
+        subOptions: []
+    },
 ]

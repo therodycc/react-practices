@@ -24,3 +24,7 @@
 .active-border{
   border-left:3px solid rgb(174, 216, 255) !important; 
 }
+
+.text-normal{
+  font-size:12px;
+}
