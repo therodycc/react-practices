@@ -18,13 +18,13 @@
 }
 
 .h-100 {
-  height: 100%
+  height: 100%;
 }
 
-.active-border{
-  border-left:3px solid rgb(174, 216, 255) !important; 
+.active-border {
+  border-left: 3px solid rgb(174, 216, 255) !important;
 }
 
-.text-normal{
-  font-size:12px;
+.text-normal {
+  font-size: 12px;
 }

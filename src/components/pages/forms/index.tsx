@@ -32,7 +32,7 @@ export const HTMLForm = () => {
         const errorEmail = isRequired(form.email, 'Email is required', setErrEmail)
         if (
             errorName
-            || errorLastName
+            || errorLastName || errorEmail
         ) {
             return
         }
