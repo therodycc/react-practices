@@ -65,4 +65,11 @@ export const sidebarOptions = [
         subOptsActive: false,
         subOptions: []
     },
+    {
+        name: "Counters",
+        route: "/counter",
+        active: false,
+        subOptsActive: false,
+        subOptions: []
+    },
 ]
