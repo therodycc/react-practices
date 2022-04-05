@@ -1,9 +1,10 @@
 import { gsap as animation } from "gsap";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 
-const MINIMUM_COUNTER = 1;
-
-export const useCounter = (MAXIMUM_COUNTER: number) => {
+export const useCounter = (
+    MAXIMUM_COUNTER: number,
+    MINIMUM_COUNTER: number
+) => {
     const [counter, setCounter] = useState(0);
     const [error, setError] = useState<string>("");
 
@@ -21,19 +22,21 @@ export const useCounter = (MAXIMUM_COUNTER: number) => {
     }, []);
 
     useEffect(() => {
-        if (counter === 1) return setError("Minimum value")
-        if (counter < 10) return setError('We need to count to 10');
+        if (counter === MINIMUM_COUNTER) return setError("Minimum value");
+        if (counter < MAXIMUM_COUNTER) return setError("We need to count to " + MAXIMUM_COUNTER);
         tl.current.play(0);
         setError("We reached the maximum counter value");
     }, [counter]);
 
     const handleClick = (num: number) => {
-        setCounter((prev) => Math.max(Math.min(prev + num, MAXIMUM_COUNTER), MINIMUM_COUNTER));
+        setCounter((prev) =>
+            Math.max(Math.min(prev + num, MAXIMUM_COUNTER), MINIMUM_COUNTER)
+        );
     };
     return {
         counter,
         handleClick,
         error,
-        elementToAnimate
+        elementToAnimate,
     };
 };

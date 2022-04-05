@@ -4,7 +4,7 @@ import { useCounter } from '../../hooks/useCounter';
 
 const Counter = () => {
 
-    const { counter, handleClick, error, elementToAnimate } = useCounter(10)
+    const { counter, handleClick, error, elementToAnimate } = useCounter(10, 1)
 
     return (
         <>
