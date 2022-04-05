@@ -72,4 +72,11 @@ export const sidebarOptions = [
         subOptsActive: false,
         subOptions: []
     },
+    {
+        name: "Lazy Load",
+        route: "/lazy-load",
+        active: false,
+        subOptsActive: false,
+        subOptions: []
+    },
 ]

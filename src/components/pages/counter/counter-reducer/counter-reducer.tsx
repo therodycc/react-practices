@@ -57,7 +57,7 @@ const CounterReducer = () => {
                         <h2 className="text-white fw-bolder"> {previous}</h2>
                     </div>
                     <div className="col-lg-4">
-                        <h4>Previous</h4>
+                        <h4>Changes</h4>
                         <h2 className="text-white fw-bolder">{changes}</h2>
                     </div>
 
