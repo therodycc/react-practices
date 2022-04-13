@@ -29,7 +29,7 @@ const Table = ({ headers, items }: TablePropsI) => {
                                             <>
                                                 <td key={'table_column_' + _index}>
                                                     {(head?.key && item[head?.key])}
-                                                    {typeof head?.render === 'function' && !head?.key && <head.render item={item} />}
+                                                    {typeof head?.render === 'function' && !head?.key && <head.render item={item} index={index} />}
                                                 </td>
                                             </>
                                         ))

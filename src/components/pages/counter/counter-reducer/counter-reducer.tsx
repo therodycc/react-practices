@@ -2,13 +2,7 @@ import { useReducer } from "react";
 import { CounterState } from "../../../../interfaces/counter/counter.interface";
 import { incrementAndDecrementAction, resetCounterAction } from "./actions/counter.action";
 import { counterReducer } from "./reducers/counter.reducer";
-
-
-const INITIAL_STATE: CounterState = {
-    counter: 0,
-    previous: 0,
-    changes: 0,
-};
+import { INITIAL_STATE } from "./state";
 
 const CounterReducer = () => {
 

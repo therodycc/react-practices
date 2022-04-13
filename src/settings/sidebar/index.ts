@@ -79,4 +79,17 @@ export const sidebarOptions = [
         subOptsActive: false,
         subOptions: []
     },
+    {
+        name: "Redux ToolTik",
+        route: "/redux-tool-tik",
+        active: false,
+        subOptsActive: false,
+        subOptions: [
+            {
+                name: "Notes",
+                route: '/redux-tool-tik/notes',
+                active: false
+            }
+        ]
+    },
 ]

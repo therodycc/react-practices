@@ -5,7 +5,7 @@ import Sidebar from './sidebar'
 const Layout = ({ children }: any) => {
     return (
         <>
-            <div className='m-0 overflow-hidden d-flex flex-column' style={{height:'100vh'}}>
+            <div className='m-0 overflow-hidden d-flex flex-column ' style={{height:'100vh'}}>
                 <Nav />
                 <div className='row overflow-scroll'  style={{flex:'1 1 auto'}}>
                     <div className="col-lg-3">

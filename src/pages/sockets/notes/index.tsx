@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { io } from 'socket.io-client';
 import Button from '../../../components/common/button';
 import Table from '../../../components/common/table';
 import Layout from '../../../components/layout';
 import { TableHeadersI } from '../../../interfaces/table/table.interface';
+import { addNoteAction, deleteNoteAction } from '../../../redux/slices/notes.slices';
 
 
 
@@ -12,7 +14,6 @@ const END_POINT = 'http://localhost:5000'
 
 
 const Notes = () => {
-    const [notes, setNotes] = useState<any>();
 
 
     useEffect(() => {
@@ -20,48 +21,11 @@ const Notes = () => {
         console.log(server);
     }, []);
 
-    const getAllNotes = () => {
-
-    }
-
-
-
-    const notesHeader: TableHeadersI[] = [
-        {
-            title: 'Title',
-            key: "title"
-        },
-        {
-            title: 'Description',
-            key: "description"
-        },
-        {
-            title: 'Actions',
-            key: "",
-            render: ({ item }: any) => {
-                return (
-                    <>
-                        <Button title={'Delete'} action={() => {
-                            console.log({ item });
-                        }} bgClass={'danger'} />
-                    </>
-                )
-            }
-        }
-    ]
 
     return (
         <>
             <Layout>
-                <div className="m-5">
-                    <code contentEditable={false}>
-                        Here the data
-                        {JSON.stringify(notes)}
-                    </code>
-                    <Table
-                        headers={notesHeader}
-                        items={notes?.data} />
-                </div>
+
             </Layout>
         </>
     )
