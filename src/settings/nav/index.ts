@@ -1,7 +1,13 @@
-export const navOptions = [
-    // {
-    //     name:"Home",
-    //     route:"/",
-    //     active:true
-    // }
+interface NavigationI {
+    name: string
+    route: string
+    active: boolean
+
+}
+export const navOptions: NavigationI[] = [
+    {
+        name: "",
+        route: "/",
+        active: true
+    }
 ]

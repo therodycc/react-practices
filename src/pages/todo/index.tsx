@@ -27,50 +27,38 @@ const Todo = () => {
             active: false,
         },
     ]);
+
     const [selectedItems, setSelectedItems] = useState<Array<ListItemProps>>([]);
 
-
-
     const handleClick = (id: string) => {
-        setData(
-            data.map((item) => {
-                item.id === id && (item.active = !item.active);
-                return item;
-            })
-        );
+        setData(_prev => _prev.map((item) => {
+            item.id === id && (item.active = !item.active);
+            return item;
+        }));
     };
 
     const handleSelectAll = () => {
-        setData(
-            data.map((item) => {
-                item.active = true;
-                return item;
-            })
-        );
+        setData(_prev => _prev.map((item) => ({
+            ...item,
+            active: true
+        })));
     };
 
     const handleSend = () => {
         const selected = data.filter(item => item.active === true);
-
-
-
-        const finishedSelected = selected.map(item => {
-            return {
-                ...item,
-                active: false
-            }
-        })
+        const finishedSelected = selected.map(item => ({
+            ...item,
+            active: false
+        }))
         setSelectedItems(finishedSelected);
     };
 
     const handleReset = () => {
         setSelectedItems([])
-        setData(
-            data.map((item) => {
-                item.active = false;
-                return item;
-            })
-        );
+        setData(_prev => _prev.map((item) => ({
+            ...item,
+            active: false
+        })));
     }
 
     return (

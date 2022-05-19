@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { SidebarOptionPropsI } from "../../../interfaces/asidebar/asidebar.interface";
 import { sidebarOptions } from "../../../settings/sidebar";
 import Router from "next/router";
-import { v4 as uuidV4 } from 'uuid'
+import { v4 as GxUUID } from 'uuid'
 
 const Sidebar = () => {
     const [asideBarOptions, setAsideBarOptions] = useState<SidebarOptionPropsI[]>(
@@ -52,16 +52,17 @@ const Sidebar = () => {
 
     return (
         <>
-            <ul className="nav nav-pills flex-column mx-2 my-2" style={{overflow:'auto'}}  >
+            <ul className="nav nav-pills flex-column mx-2 my-2" style={{ overflow: 'auto' }}  >
                 {asideBarOptions.map((option, index) => (
-                    <>
+                    <div
+                        key={GxUUID()}
+                    >
                         <li
-                            key={uuidV4()}
                             className="nav-item">
                             <Link
                                 href={option.route}>
                                 <p
-                                    key={uuidV4()}
+                                    key={GxUUID()}
                                     onClick={() => handleMenu(option.route)}
                                     className={`nav-link my-1 shadow-lg d-flex justify-content-between align-items-center p-3  ${option.active ? "active active-border" : "bg-white"
                                         }`}
@@ -86,22 +87,20 @@ const Sidebar = () => {
                         {option?.subOptsActive && (
                             <ul className={`animate__animated`}>
                                 {option.subOptions.map((subOption, index) => (
-                                    <>
-                                        <Link key={uuidV4()} href={subOption.route}>
-                                            <li
-                                                className={`nav-link my-1 p-2 ${subOption.active ? "active active-border" : "bg-white"
-                                                    }`}
-                                                onClick={() => { handleMenu(subOption.route) }}
-                                            >
-                                                <i className="fas fa-road mx-2"></i>
-                                                {subOption.name}
-                                            </li>
-                                        </Link>
-                                    </>
+                                    <Link key={GxUUID()} href={subOption.route}>
+                                        <li
+                                            className={`nav-link my-1 p-2 ${subOption.active ? "active active-border" : "bg-white"
+                                                }`}
+                                            onClick={() => { handleMenu(subOption.route) }}
+                                        >
+                                            <i className="fas fa-road mx-2"></i>
+                                            {subOption.name}
+                                        </li>
+                                    </Link>
                                 ))}
                             </ul>
                         )}
-                    </>
+                    </div>
                 ))}
             </ul>
         </>

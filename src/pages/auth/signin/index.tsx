@@ -1,13 +1,10 @@
 import React, { FormEvent } from 'react'
 import { useDispatch } from 'react-redux'
-import { login } from '../../../actions/auth.action'
-import { types } from '../../../types'
-
 const SignIn = () => {
     const dispatch = useDispatch()
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault()
-        dispatch(login('A23h-234hjk-234', 'Mars'))
+        // dispatch(login('A23h-234hjk-234', 'Mars'))
     }
 
 

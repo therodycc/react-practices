@@ -1,6 +1,6 @@
 import React from 'react'
 import { TablePropsI } from '../../../interfaces/table/table.interface'
-
+import { v4 as GxUUID } from 'uuid'
 
 const Table = ({ headers, items }: TablePropsI) => {
     return (
@@ -10,11 +10,9 @@ const Table = ({ headers, items }: TablePropsI) => {
                     <tr key="head_table_row">
                         {
                             headers?.map((head, index) => (
-                                <>
-                                    <th key={'head_colum' + index} scope="col">
-                                        {head?.title}
-                                    </th>
-                                </>
+                                <th key={GxUUID()} scope="col">
+                                    {head?.title}
+                                </th>
                             ))
                         }
                     </tr>
@@ -22,20 +20,16 @@ const Table = ({ headers, items }: TablePropsI) => {
                 <tbody>
                     {
                         items?.map((item, index) => (
-                            <>
-                                <tr key={'table_column_' + index}>
-                                    {
-                                        headers.map((head, _index) => (
-                                            <>
-                                                <td key={'table_column_' + _index}>
-                                                    {(head?.key && item[head?.key])}
-                                                    {typeof head?.render === 'function' && !head?.key && <head.render item={item} index={index} />}
-                                                </td>
-                                            </>
-                                        ))
-                                    }
-                                </tr>
-                            </>
+                            <tr key={'table_column_' + index}>
+                                {
+                                    headers.map((head, _index) => (
+                                        <td key={GxUUID()} >
+                                            {(head?.key && item[head?.key])}
+                                            {typeof head?.render === 'function' && !head?.key && <head.render item={item} index={index} />}
+                                        </td>
+                                    ))
+                                }
+                            </tr>
                         ))
                     }
                 </tbody>

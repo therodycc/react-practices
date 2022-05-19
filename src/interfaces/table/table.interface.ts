@@ -1,6 +1,6 @@
 export interface TablePropsI {
     headers: TableHeadersI[],
-    items: any[]
+    items: any[] | null
 }
 
 export interface TableHeadersI {
