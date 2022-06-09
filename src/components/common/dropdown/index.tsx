@@ -1,26 +1,33 @@
 import React from "react";
-import { v4 as GxUUID } from "uuid"
+import { DropDownPropsI } from "../../../interfaces/dropdown/dropdown.interface";
 
-const Dropdown = ({ options, name, onChange }: any) => {
+const Dropdown = ({ options, name, value, onChange, title }: DropDownPropsI) => {
     return (
         <>
-            <select
-                className="form-select"
-                onChange={(e) => {
-                    onChange(e);
-                }}
-            >
-                <option value="">Select</option>
-                {options.map((item: any) => (
-                    <option
-                        key={GxUUID()}
-                        style={{ padding: "10px", height: "20px" }}
-                        value={item.value}
-                    >
-                        {item.title}
-                    </option>
-                ))}
-            </select>
+            <div className="row px-2">
+                {
+                    title && <span className="fw-bolder text-normal p-1">{title}</span>
+                }
+
+                <select
+                    name={name}
+                    className="form-select"
+                    style={{ borderBottom: '2px solid #d5d5d5', padding: '10px 20px' }}
+                    value={value}
+                    onChange={(e) => onChange(e)}
+                >
+                    {
+                        options.map((option, index) => (
+                            <option
+                                key={`${option.value}-${index}`}
+                                value={option.value}
+                            >
+                                {option.title}
+                            </option>
+                        ))
+                    }
+                </select>
+            </div>
         </>
     );
 };

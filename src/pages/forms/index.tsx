@@ -2,15 +2,17 @@ import React from 'react'
 import Layout from '../../components/layout'
 import { HTMLForm } from '../../components/pages/forms'
 
-const Forms = () => {
+const FormsPage = () => {
     return (
         <>
             <Layout>
-                <h1>Forms</h1>
-                <HTMLForm />
+                <div className="container mt-3">
+                    <h1>Forms</h1>
+                    <HTMLForm />
+                </div>
             </Layout>
         </>
     )
 }
 
-export default Forms
+export default FormsPage

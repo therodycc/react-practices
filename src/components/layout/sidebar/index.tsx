@@ -6,9 +6,7 @@ import Router from "next/router";
 import { v4 as GxUUID } from 'uuid'
 
 const Sidebar = () => {
-    const [asideBarOptions, setAsideBarOptions] = useState<SidebarOptionPropsI[]>(
-        []
-    );
+    const [asideBarOptions, setAsideBarOptions] = useState<SidebarOptionPropsI[]>([]);
 
     useEffect(() => {
         handleChange(Router.pathname);

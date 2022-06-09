@@ -5,9 +5,9 @@ interface NavigationI {
 
 }
 export const navOptions: NavigationI[] = [
-    {
-        name: "",
-        route: "/",
-        active: true
-    }
+    // {
+    //     name: "",
+    //     route: "/",
+    //     active: true
+    // }
 ]
