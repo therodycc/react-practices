@@ -56,7 +56,7 @@ const Sidebar = () => {
                         key={GxUUID()}
                     >
                         <li
-                            className="nav-item">
+                            className="nav-item cursor-pointer">
                             <Link
                                 href={option.route}>
                                 <p

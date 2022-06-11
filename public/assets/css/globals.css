@@ -28,3 +28,23 @@
 .text-normal {
   font-size: 12px;
 }
+
+
+.card-dashboard {
+  border-radius: 15px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.158);
+  background-color: #fff;
+  color: rgba(148, 148, 148, 0.849) !important;
+}
+
+.card-dashboard:hover {
+  transform: scale(1.01);
+  transition: all 0.2s ease-in-out;
+  background-color: #3459e6;
+  cursor: pointer;
+  color: white !important;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}

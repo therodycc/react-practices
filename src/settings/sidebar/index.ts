@@ -45,27 +45,6 @@ export const sidebarOptions = [
         ]
     },
     {
-        name: "Dropdown practices",
-        route: "/drop-downs",
-        active: false,
-        subOptsActive: false,
-        subOptions: []
-    },
-    {
-        name: "Modals",
-        route: "/modals",
-        active: false,
-        subOptsActive: false,
-        subOptions: []
-    },
-    {
-        name: "Forms",
-        route: "/forms",
-        active: false,
-        subOptsActive: false,
-        subOptions: []
-    },
-    {
         name: "Counters",
         route: "/counter",
         active: false,
