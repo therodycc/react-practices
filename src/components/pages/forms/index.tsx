@@ -1,4 +1,5 @@
 import { inputsFormPageSettings } from "../../../settings/forms-page/inputs-data-form-page";
+import Button from "../../common/button";
 import Form from "../../common/form";
 
 export const HTMLForm = () => {
@@ -8,17 +9,20 @@ export const HTMLForm = () => {
     };
 
     return (
-        <div className="card p-3">
+        <div className="simple-card p-3 col-lg-6">
             <Form
                 inputsData={inputsFormPageSettings}
                 handleSubmit={handleSubmit}
-                footerSection={<>
-                    <div className="row mt-3">
-                        <button type="submit" className="btn btn-primary">
-                            Submit
-                        </button>
+                footerSection={
+                    <div className="mt-3 col-lg-12 d-flex justify-content-end">
+                        <Button
+                            type="submit"
+                            customClass="w-100"
+                            title={"Submit"}
+                            action={() => { }}
+                            bgClass={"primary"} />
                     </div>
-                </>} />
+                } />
         </div >
     );
 };

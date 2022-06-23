@@ -20,26 +20,17 @@ const Form = ({ inputsData, handleSubmit, footerSection }: FormPropsI) => {
 
     return (
         <>
-            <form onSubmit={handleSubmitAction}>
-                <div className="row mt-3">
+            <form className="col-lg-12" onSubmit={handleSubmitAction} >
+                <div className="row">
                     {inputsData({ form })?.map((item: InputPropsI, index: number) => (
-                        <div
-                            className={`mt-3 ${item.cols}`}>
-                            {item.props.type === "dropdown" && item.options ? (
-                                <Dropdown
-                                    title={item.props.title}
-                                    value={item.props.value?.toString()}
-                                    name={item.props.name}
-                                    options={item.options}
-                                    onChange={handleChange}
-                                />
-                            ) : (
-                                <Input {...item.props} {...item} onChange={handleChange} />
-                            )}
+                        <div className={`mt-3 ${item.cols}`}>
+                            {item.type === "dropdown" && item.options ? (
+                                <Dropdown {...item} options={item.options} value={item.value?.toString()} onChange={handleChange} />
+                            ) : (<Input {...item} onChange={handleChange} />)}
                         </div>
                     ))}
                 </div>
-                <div className="row mt-3">
+                <div className="col-lg-12">
                     {footerSection}
                 </div>
             </form>

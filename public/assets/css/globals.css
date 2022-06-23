@@ -45,6 +45,14 @@
   color: white !important;
 }
 
+.simple-card {
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.158);
+  background-color: #fff;
+  color: rgba(148, 148, 148, 0.849) !important;
+}
+
 .cursor-pointer {
   cursor: pointer;
 }

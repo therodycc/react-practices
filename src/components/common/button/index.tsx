@@ -7,7 +7,7 @@ const Button = ({ title, action, bgClass, size, type, loading, customClass }: Bu
             <button
                 onClick={() => action()}
                 type={type || 'button'}
-                className={`btn btn-${bgClass} btn-${size && (size || '')} mx-1 ${customClass}`}
+                className={`btn btn-${bgClass} btn-${size && (size || '')} p-3 ${customClass}`}
             >
                 {!loading ? title : (
                     <>

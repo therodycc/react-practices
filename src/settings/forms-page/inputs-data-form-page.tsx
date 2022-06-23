@@ -8,34 +8,28 @@ export const inputsFormPageSettings = ({ form }: { form: any }): InputPropsI[] =
                 textError: "First Name is required"
             },
             cols: "col-md-6",
-            props: {
-                type: "text",
-                name: "firstName",
-                defaultValue: form?.firstName,
-                placeholder: "Enter your first name",
-            }
+            type: "text",
+            name: "firstName",
+            defaultValue: form?.firstName,
+            placeholder: "Enter your first name",
         },
         {
             title: "Last Name",
             errorMessage: "",
             cols: "col-md-6",
-            props: {
-                type: "text",
-                name: "lastName",
-                defaultValue: form?.lastName,
-                placeholder: "Enter your last name",
-            }
+            type: "text",
+            name: "lastName",
+            defaultValue: form?.lastName,
+            placeholder: "Enter your last name",
         },
         {
             title: "Email",
             errorMessage: "",
             cols: "col-md-6",
-            props: {
-                type: "text",
-                name: "email",
-                defaultValue: form?.email,
-                placeholder: "Enter your email",
-            }
+            type: "text",
+            name: "email",
+            defaultValue: form?.email,
+            placeholder: "Enter your email",
         },
     ]
 }

@@ -47,8 +47,9 @@ const Todo = () => {
                 <div className="mx-5">
 
                     <div className="col-lg-6 mt-5">
-                        <Button title="Select all" bgClass="primary" action={handleSelectAll} size="sm" />
-                        <Button title="Reset" bgClass="danger" action={handleReset} size="sm" />
+                        <Button title="Select all" bgClass="primary" action={handleSelectAll} customClass="col-lg-3 " />
+                        <Button title="Reset" bgClass="danger" action={handleReset} customClass="col-lg-3 mx-1" />
+                        <Button title="Send" bgClass="success" action={handleSend} customClass="col-lg-3" />
                     </div>
 
                     <div className="row">
@@ -65,7 +66,6 @@ const Todo = () => {
                             />
                         </div>
                     </div>
-                    <Button title="Send" bgClass="success" action={handleSend} />
                 </div>
 
             </Layout>
